@@ -1,0 +1,16 @@
+{% extends "Dasboard.html" %}
+
+{% block content0  %}
+    <th>ID position</th>
+    <th>Description</th>
+{% endblock  %}
+
+{% block content  %}
+    {% for user in pos %}
+        <tr>
+            <td>{{user.id_postion}}</td>
+            <td>{{user.Description}}</td>
+        </tr>
+    {% endfor %} 
+
+{% endblock  %}

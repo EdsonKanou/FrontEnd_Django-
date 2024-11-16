@@ -1,0 +1,23 @@
+{% extends "Dasboard.html" %}
+
+{% block content0  %}
+    <th>User ID</th>
+    <th>Contact</th>
+    <th>Nom</th>
+    <th>Email</th>
+    <th>administrateur</th>
+{% endblock  %}
+
+{% block content  %}
+
+    {% for user in client %}
+    <tr>
+        <td>{{user.id_client}}</td>
+        <td>{{user.Contact_client}}</td>
+        <td>{{user.Nom_client}}</td>
+        <td>{{user.Email_client}}</td>
+        <td>{{user.administrateur}}</td>
+    </tr>
+    {% endfor %} 
+
+{% endblock  %}

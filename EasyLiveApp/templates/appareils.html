@@ -1,0 +1,23 @@
+
+{% extends "Dasboard.html" %}
+{% load static %}
+
+{% block content0  %}
+    <th> ID Appareil</th>
+    <th>Nom</th>
+    <th>Description</th>
+    <th>etat</th>
+    <th>position</th>
+{% endblock  %}
+
+{% block content %}
+    {% for app in appareil %}
+            <tr>
+                <td>{{app.id_appareil}}</td>
+                <td>{{app.Nom_appareil}}</td>
+                <td>{{app.Description}}</td>
+                <td>{{app.etat}}</td>
+                <td>{{app.position}}</td>
+            </tr>
+    {% endfor %} 
+{% endblock %}

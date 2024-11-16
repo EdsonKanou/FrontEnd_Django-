@@ -1,0 +1,146 @@
+{% load static %}
+{% load django_material_icons %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href=" {% static 'css/Dasboard.css' %}">
+    <title>Dashboard</title>
+</head>
+<body class="grid-container">
+     <header>
+        <span class="material-symbols-outlined" id="menuBtn" > menu_open</span>
+        <div class="search-box">
+            <input type="text" placeholder="Recherche ici">
+            <span class="material-symbols-outlined">search</span>
+        </div>
+        <div class="user-icons">
+            <span class="material-symbols-outlined">notifications</span>
+            <span class="material-symbols-outlined">mail</span>
+            <span class="material-symbols-outlined">account_circle</span>
+            <h4>John Wick</h4>
+        </div>
+     </header>
+     <aside>
+        <div class="logo-box">
+            <span class="material-symbols-outlined asideBtn">home</span>
+            <span class="hide-span active">Easy Live</span>
+        </div>
+        <div class="menu-box">
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item" id="dashboardBtn">
+                    <span class="material-symbols-outlined asideBtn">dashboard</span>
+                    <span class="hide-span active">Dashboard</span>
+                </li>
+
+                <a id="ok" href="{% url 'Appareil' %}" style="text-decoration: none;
+                        color: inherit;">
+                    <li class="sidebar-list-item" id="productBtn">
+                        <span class="material-symbols-outlined asideBtn">inventory_2</span>
+                        <span class="hide-span active">  Appareils  </span>
+                    </li>   
+                </a> 
+                 
+                <a id="ok" href="{% url 'Position' %}" style="text-decoration: none; color: inherit;">
+                    <li class="sidebar-list-item">
+                        <span class="material-symbols-outlined asideBtn">category</span>
+                        <span class="hide-span active"> Positions  </span>
+                    </li>
+                </a>
+
+                <a id="ok" href="{% url 'Home' %}" style="text-decoration: none; color: inherit;">
+                    <li class="sidebar-list-item">
+                        <span class="material-symbols-outlined asideBtn"> groups</span>
+                        <span class="hide-span active">  Clients </span>
+                    </li>
+                </a> 
+                <a id="ok" href="{% url 'Smart' %}" style="text-decoration: none; color: inherit;">
+                    <li class="sidebar-list-item">
+                        <span class="material-symbols-outlined asideBtn"> lightbulb_outline </span>
+                        <span class="hide-span active">  Controler  </span>
+                    </li>
+                </a>
+                <a id="ok" href="{% url 'vocal' %}" style="text-decoration: none; color: inherit;">
+                    <li class="sidebar-list-item">
+                        <span class="material-symbols-outlined asideBtn"> Mic </span>
+                        <span class="hide-span active">  vocal  </span>
+                    </li>
+                </a>
+                
+                <li class="sidebar-list-item" id="mode-changer">
+                    <span class="material-symbols-outlined asideBtn" id="modeIcon">light_mode</span>
+                    <span class="mode-txt hide-span active" id="modeTxt">Nuit</span>
+                </li>
+            </ul>
+        </div>
+     </aside>
+     <main>
+        <p class="title">Dashboard</p>
+        <div class="main-cards">
+    
+            <div class="card">
+                <div class="card-inner">
+                    <h3>APPAREILS</h3>
+                    <span class="material-symbols-outlined">inventory_2</span>
+                </div>
+                <h1>{{appareil.count}}</h1>
+            </div>
+
+            <div class="card">
+                <div class="card-inner">
+                    <h3>POSITION</h3>
+                    <span class="material-symbols-outlined">category</span>
+                </div>
+                <h1>{{pos.count}}</h1>
+            </div>
+            
+            <div class="card">
+                <div class="card-inner">
+                    <h3>CLIENTS</h3>
+                    <span class="material-symbols-outlined">groups</span>
+                </div>
+                <h1>{{client.count}}</h1>
+            </div>
+            
+            <div class="card">
+                <div class="card-inner">
+                    <h3>ALERTES</h3>
+                    <span class="material-symbols-outlined">notification_important</span>
+                </div>
+                <h1>56</h1>
+            </div>
+           
+        </div>
+         
+
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        {%  block  content0 %}
+                        {% endblock  %}
+                    </tr>
+                </thead>
+                <tbody>
+                   
+
+                    {%  block  content %}
+                    {% endblock  %}
+                    
+                </tbody>
+            </table>
+        </div>
+     </main>
+     <footer>
+
+     </footer>
+
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+     <script src="{% static 'js/main.js'  %}"></script>
+</body>
+</html>
